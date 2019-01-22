@@ -35,7 +35,7 @@ const Fingerprint = setting => {
             if (this.isLeaf) acc.push(x)
             return acc
           }, [])
-          fingerprint.hash = hash.hash128(leaves.join('~~~'))
+          fingerprint.hash = hash.hash32(leaves.join('~~~'))
           fingerprint.components = components // debug
           req.fingerprint = fingerprint
         }
