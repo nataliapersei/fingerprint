@@ -2,7 +2,7 @@ import murmurhash3js from 'murmurhash3js'
 import async from 'async'
 import parameters from './parameters'
 import traverse from 'traverse'
-const hash = murmurhash3js[process.arch]
+const hash = murmurhash3js
 
 const Fingerprint = setting => {
   const config = {
@@ -35,7 +35,7 @@ const Fingerprint = setting => {
             if (this.isLeaf) acc.push(x)
             return acc
           }, [])
-          fingerprint.hash = hash.hash32(leaves.join('~~~'))
+          fingerprint.hash = hash.x86.hash32(leaves.join('~~~'))
           fingerprint.components = components // debug
           req.fingerprint = fingerprint
         }
